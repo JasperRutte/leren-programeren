@@ -18,3 +18,18 @@ str("dit is een string") # str print een tekst  naar de console
 int(4) # int print een integer naar de console 
 float(4.90930293) # float print een float naar de console
 bool(True) # bool print een boolean naar de console
+
+# git commands
+"""
+git init # maakt een git repository aan
+git add . # voegt alle bestanden toe aan de git repository
+git commit -m "dit is een commit" # commit de bestanden in de git repository
+git push # push de bestanden naar de github repository
+git pull # pull de bestanden van de github repository
+git status # laat zien welke bestanden er zijn veranderd
+git log # laat zien welke commits er zijn gemaakt
+git branch # laat zien welke branches er zijn
+git checkout # switcht tussen branches
+git merge # mergt branches
+git clone # clone een repository
+"""
