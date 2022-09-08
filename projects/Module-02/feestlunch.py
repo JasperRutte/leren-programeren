@@ -1,5 +1,9 @@
-croissant = 0.39 * 17
-stokbrood = 2.78 * 2
-kortingsbon = 0.50 * 3
+hoeveel_crossiants = int(input("Hoeveel crossiants wilt u? "))
+hoeveel_stokbroden = int(input("Hoeveel stokbroden wilt u? "))
+hoeveel_kortingsbonnen = int(input("Hoeveel kortingsbonnen heeft u? "))
+
+croissant = 0.39 * hoeveel_crossiants
+stokbrood = 2.78 * hoeveel_stokbroden
+kortingsbon = 0.50 * hoeveel_kortingsbonnen
 totaal = croissant + stokbrood - kortingsbon
-print(f'De feestlunch kost je bij de bakker {totaal} euro voor de 17 croissantjes en de 2 stokbroden als de 3 kortingsbonnen nog geldig zijn!')
+print(f'De feestlunch kost je bij de bakker {totaal} euro voor de {hoeveel_crossiants} croissantjes en de {hoeveel_stokbroden} stokbroden als de {hoeveel_kortingsbonnen} kortingsbonnen nog geldig zijn!')
