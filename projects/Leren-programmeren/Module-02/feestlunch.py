@@ -7,3 +7,4 @@ stokbrood = 2.78 * hoeveel_stokbroden
 kortingsbon = 1.50 * hoeveel_kortingsbonnen
 totaal = croissant + stokbrood - kortingsbon
 print(f'De feestlunch kost je bij de bakker {totaal:.2f} euro voor de {hoeveel_crossiants} croissantjes en de {hoeveel_stokbroden} stokbroden als de {hoeveel_kortingsbonnen} kortingsbonnen nog geldig zijn!')
+
