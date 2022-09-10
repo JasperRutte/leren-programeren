@@ -1,4 +1,4 @@
-# ervaring = input("Heeft u praktijkervaring met dieren-dressuur OF ervaring met jongleren OF praktijkervaring met acrobatiek?(J/N): ")
+print("\nU moet alle vragen beantwoorden met een J of N (hoofdlettergevoelig)\n")
 dieren_dressuur = int(input("Hoeveel jaar praktijk ervaring heeft u in dieren dressuur?: "))
 jongleren = int(input("Hoeveel jaar ervaring heeft u in jongleren?: "))
 acrobatiek = int(input("Hoeveel jaar praktijkervaring heeft u in acrobatiek?: "))
@@ -19,12 +19,14 @@ ervaring = dieren_dressuur + jongleren + acrobatiek
 if dieren_dressuur >= 4 or jongleren >= 5 or acrobatiek >= 3:
     ervaring = True
 
-if ervaring == True and diploma == "J" and vrachtwagen == "J" and hoge_hoed == "J" and snor >= 10 and haar >= 20 and lengte >= 150 and gewicht >= 90 and certificaat == "J":
+snor_haar = haar + snor
+if snor >= 10 or haar >= 20:
+    snor_haar = True
+
+if ervaring == True and diploma == "J" and vrachtwagen == "J" and hoge_hoed == "J" and snor_haar == True and lengte >= 150 and gewicht >= 90 and certificaat == "J":
     print("U bent aangenomen!")
-
-
-
-
+else:
+    print("U bent niet aangenomen!")
 
 
 
