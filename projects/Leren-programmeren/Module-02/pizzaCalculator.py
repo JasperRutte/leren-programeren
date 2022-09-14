@@ -1,6 +1,6 @@
-#large 12 euro
-#medium 9,50 euro
-#small 8 euro
+# large 12 euro
+# medium 9,50 euro
+# small 8 euro
 
 def pizzaCalculator():
     print("Large pizza    : 12 euro\nmedium pizzas  : 9,50 euro\nsmall pizzas   : 8 euro") #\n word gebruikt om een line over te slaan in de print
