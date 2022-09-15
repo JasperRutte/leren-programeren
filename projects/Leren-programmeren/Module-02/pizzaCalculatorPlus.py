@@ -17,6 +17,7 @@ smallPizza = (numberCheck("Hoeveel small pizza's wilt u: "))  # geeft "vraag" ee
 mediumPizza = (numberCheck("Hoeveel medium pizza's wilt u: "))
 largePizza = (numberCheck("Hoeveel large pizza's wilt u: "))
 
+
 print(
     f'\nUw bestelling:\n{smallPizza}x small pizzas\n{mediumPizza}x medium pizzas\n{largePizza}x large pizzas')  # bon printen
 total = smallPizza * smallBedrag + mediumPizza * mediumBedrag + largePizza * largeBedrag  # uitrekenen hoeveel alles bij elkaar kost
