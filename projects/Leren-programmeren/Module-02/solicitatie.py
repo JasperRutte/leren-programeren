@@ -7,18 +7,20 @@ diploma = input("Heeft u een MBO-4 diploma op zak?(J/N): ").upper()
 vrachtwagen = input("Heeft u een geldig vrachtwagen rijbewijs?(J/N): ").upper()
 hoge_hoed = input("Heeft u een hoge hoed?(J/N): ").upper()
 snor = int(input("Hoe breed is uw snor?(cm): "))
-if snor == 0:
-    raise NameError("Small moustache man...")  # exception opdracht
+if snor > 20:
+    raise Exception("Big moustache man")
 haar = int(input("Hoe lang is uw roodharig krulhaar?(cm): "))
 lengte = int(input("Hoe lang bent u?(cm): "))
+if lengte < 150:
+    raise Exception("midget moment")
 gewicht = int(input("Hoeveel weegt u?(kg): "))
-certificaat = input("Heeft u een certificaat 'overleven met vevaarlijk personeel'?(J/N): ").upper()
-efteling = input("Hoe vaak bent u bij de Efteling geweest?: ")  # Er hoeft niks gedaan te worden met deze variabel
+certificaat = input("Heeft u een certificaat 'overleven met gevaarlijk personeel'?(J/N): ").upper()
+schaal = input("Op een schaal van stoel tot olifant wat is uw favoriete kleur van het alfabet?: ")  # Er hoeft niks gedaan te worden met deze variabel
 papier = input("Heeft u wel een papier gegeten?(J/N): ")  # Er hoeft niks gedaan te worden met deze variabel
 water = input("Heeft u wel eens eerder water gedronken?(J/N): ")  # Er hoeft niks gedaan te worden met deze variabel
 zuurstof = input("Ademt u zuurstof?(J/N): ")  # Er hoeft niks gedaan te worden met deze variabel
 if zuurstof == "N":
-    raise NameError("How are you even alive???")
+    raise Exception("Hoe leef je op dit punt nog???")
 
 ervaring = False
 if dieren_dressuur >= 4 or jongleren >= 5 or acrobatiek >= 3:
