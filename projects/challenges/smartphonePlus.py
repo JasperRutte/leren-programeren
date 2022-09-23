@@ -57,3 +57,4 @@ elif verschilIphone <= 50:
     print(f"Het advies dus de iphone te kopen, deze is namelijk {verschilIphone} goedkoper/duurder dan de {middle}")
 else:
     print(f"Het advies is dus de Samsung te kopen, deze is namelijk het goedkoopst")
+    # test
