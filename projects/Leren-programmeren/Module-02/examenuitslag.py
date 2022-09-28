@@ -19,10 +19,3 @@ elif scoreP + scoreE - scoreO == 8 and scoreS == 0 or scoreS == 1 and scoreP + s
     print("Je hebt een voldoende")
 else:
     print("Je bent gezakt")
-
-
-    # What kind of house?
-    # How many rooms / what kind of rooms?
-    # What is your most favourite place at home? Why?
-    # Do you have a balcony / garden? etc.
-    # Describe the interior of one room.
