@@ -99,9 +99,52 @@ time.sleep(1)
 print("You encountered a goblin!")
 fightRun = input("Do you want to fight it run? (Fight/Run): ").upper()
 fighting(fightRun)
+# firstFight = input("Do you wish to fight it or run? (Fight/Run): ").upper()
+# if firstFight == "FIGHT":
+#     if weapon == "N":
+#         print("You died because you didnt have a sword...")
+#         exit()
+#     else:
+#         userNum = int(input("Enter a number between 1-4: "))
+#         fightWinLose(userNum)
+# elif firstFight == "RUN":
+#     userNum = int(input("1 or 2: "))
+#     escapeWinLose(userNum)
+# else:
+#     print("Invalid answer... Game over")
+#     exit()
 
 printDelay("You continue wandering in the forest...")
 printDelay("You encounter a skeleton wielding a strange sword")
 fightRun = input("Do you want to fight it run? (Fight/Run): ").upper()
 fighting(fightRun)
+# secondFight = input("Do you wish to fight it or run? (Fight/Run): ").upper()
+# if secondFight == "FIGHT":
+#     if weapon == "N":
+#         print("You died because you didnt have a sword...")
+#         exit()
+#     else:
+#         userNum = int(input("Enter a number between 1-4: "))
+#         fightWinLose(userNum)
+# elif firstFight == "RUN":
+#     userNum = int(input("1 or 2: "))
+#     escapeWinLose(userNum)
+# else:
+#     print("Invalid answer... Game over")
+#     exit()
 
+
+# def fighting(i: str):
+#     if i == "FIGHT":
+#         if weapon == "N":
+#             print("You lost because you didnt have a sword...")
+#             exit()
+#         else:
+#             userNum = int(input("Enter a number between 1-4: "))
+#             fightWinLose(userNum)
+#     elif i == "RUN":
+#         userNum = int(input("Enter 1 or 2: "))
+#         escapeWinLose(userNum)
+#     else:
+#         print("Invalid answer... Game over")
+#         exit()
