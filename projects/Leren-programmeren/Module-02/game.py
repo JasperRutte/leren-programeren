@@ -3,7 +3,7 @@ import time
 
 def fightWinLose(i: int):
     x = random.randint(1, 4)
-    if 0 < i < 4:
+    if 0 < i < 5:
         if i == x:
             print("You died")
             exit()
@@ -14,10 +14,9 @@ def fightWinLose(i: int):
         print("Game over...")
         exit()
 
-
-def escapeWinLose(i):
+def escapeWinLose(i: int):
     x = random.randint(1, 2)
-    if 1 < i < 2:
+    if 0 < i < 3:
         if i == x:
             print("You died")
             exit()
@@ -34,15 +33,23 @@ def fighting(i: str):
             print("You lost because you didnt have a sword...")
             exit()
         else:
-            usernum = int(input("Enter a number between 1-4: "))
-            fightWinLose(usernum)
+            usernumber = int(input("Enter a number between 1-4: "))
+            fightWinLose(usernumber)
     elif i == "RUN":
-        usernum = int(input("Enter 1 or 2: "))
-        escapeWinLose(usernum)
+        usernumber = int(input("Enter 1 or 2: "))
+        escapeWinLose(usernumber)
     else:
         print("Invalid answer... Game over")
         exit()
 
+def dragonFight(i: int):
+    counter = random.randint(1, 5)
+    if 0 < i < 6:
+        if counter == i:
+            print("You died")
+            exit()
+    else:
+        print("hit")
 
 def printDelay(t: str, d=0.75):
     time.sleep(d)
@@ -91,6 +98,8 @@ if dragonFight1 == "FIGHT":
     exit()
 elif dragonFight1 == "TRAIN":
     printDelay("Good, you shall now go to the forest and start your training")
+    printDelay("You start wandering through the forest")
+
 else:
     print("invalid answer... Game over")
     exit()
@@ -103,5 +112,21 @@ fighting(fightRun)
 printDelay("You continue wandering in the forest...")
 printDelay("You encounter a skeleton wielding a strange sword")
 fightRun = input("Do you want to fight it run? (Fight/Run): ").upper()
+if fightRun == "FIGHT":
+    dragonSword = True
+else:
+    dragonSword = False
 fighting(fightRun)
 
+printDelay("You are now going to fight the dragon!")
+if not dragonSword:
+    print("You died because you didnt have the dragon sword...")
+    exit()
+else:
+    userNumber = int(input("Enter a number between 1-5"))
+    dragonFight(userNumber)
+    userNumber = int(input("Enter a number between 1-5"))
+    dragonFight(userNumber)
+    userNumber = int(input("Enter a number between 1-5"))
+    dragonFight(userNumber)
+print(f"Congrats '{username}'! You are the village their saviour!")
