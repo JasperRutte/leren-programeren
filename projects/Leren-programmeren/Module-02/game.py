@@ -72,9 +72,9 @@ time.sleep(1)
 weapon = input("You first need a weapon , do you want me to give a sword? (Y/N): ").upper()
 if weapon == "N":
     weaponSure = input("Are you sure you dont want a sword? (Y/N): ").upper()
-    if weaponSure == "N":
+    if weaponSure == "Y":
         printDelay("Okay... The choice was yours")
-    elif weaponSure == "Y":
+    elif weaponSure == "N":
         printDelay("Take good care of the sword")
         weapon = "Y"
 elif weapon == "Y":
