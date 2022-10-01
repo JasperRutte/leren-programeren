@@ -1,7 +1,7 @@
 import random
 import time
 
-def fightWinLose(i: int):
+def fightWinLose(i: int):  # int generator for winning and losing fights
     x = random.randint(1, 4)
     if 0 < i < 5:
         if i == x:
@@ -14,7 +14,7 @@ def fightWinLose(i: int):
         print("Game over...")
         exit()
 
-def escapeWinLose(i: int):
+def escapeWinLose(i: int):  # int generator to decide if you escape or not
     x = random.randint(1, 2)
     if 0 < i < 3:
         if i == x:
@@ -27,7 +27,7 @@ def escapeWinLose(i: int):
         print("Game over...")
         exit()
 
-def fighting(i: str):
+def fighting(i: str):  # function to see if user wants to run or fight
     if i == "FIGHT":
         if weapon == "N":
             print("You lost because you didnt have a sword...")
@@ -42,7 +42,7 @@ def fighting(i: str):
         print("Invalid answer... Game over")
         exit()
 
-def dragonFight(i: int):
+def dragonFight(i: int):    # int generator to fight the dragon
     counter = random.randint(1, 5)
     if 0 < i < 6:
         if counter == i:
@@ -51,11 +51,12 @@ def dragonFight(i: int):
     else:
         print("hit")
 
-def printDelay(t: str, d=0.75):
+def printDelay(t: str, d=0.75):  # function to print with delay
     time.sleep(d)
     print(t)
 
 
+# user picks username
 printDelay("You wake up in a house...")
 printDelay("random npc: 'Hey you, you're finally awake.'")
 printDelay("random npc: 'What is your name if i may ask?'")
@@ -63,6 +64,7 @@ username = input("Input username: ")
 print(f"random npc: 'Hello '{username}' it's nice to meet you.'")
 
 
+# user decides if they help the village
 time.sleep(1)
 helpVillage = input("random npc: There is a dragon near the village will you help us kill it?' (Y/N): ").upper()
 if helpVillage == "Y":
@@ -75,6 +77,7 @@ else:
     print("invalid answer... Game over")
     exit()
 
+# user decides if they want a sword or not
 time.sleep(1)
 weapon = input("You first need a weapon , do you want me to give a sword? (Y/N): ").upper()
 if weapon == "N":
@@ -91,6 +94,7 @@ else:
     exit()
 
 
+# user decides to train or fight the dragon immediately
 dragonFight1 = input("Do you first want to train or immediately fight the dragon? (Train/Fight): ").upper()
 if dragonFight1 == "FIGHT":
     printDelay("You tried fighting the dragon but sadly failed...")
@@ -99,16 +103,17 @@ if dragonFight1 == "FIGHT":
 elif dragonFight1 == "TRAIN":
     printDelay("Good, you shall now go to the forest and start your training")
     printDelay("You start wandering through the forest")
-
 else:
     print("invalid answer... Game over")
     exit()
 
+# first fight, they decide fight or run
 time.sleep(1)
 print("You encountered a goblin!")
 fightRun = input("Do you want to fight it run? (Fight/Run): ").upper()
 fighting(fightRun)
 
+# second fight, they decide fight or run
 printDelay("You continue wandering in the forest...")
 printDelay("You encounter a skeleton wielding a strange sword")
 fightRun = input("Do you want to fight it run? (Fight/Run): ").upper()
@@ -118,6 +123,7 @@ else:
     dragonSword = False
 fighting(fightRun)
 
+# boss fight, they need dragon sword to fight in and hit boss 3 times
 printDelay("You are now going to fight the dragon!")
 if not dragonSword:
     print("You died because you didnt have the dragon sword...")
