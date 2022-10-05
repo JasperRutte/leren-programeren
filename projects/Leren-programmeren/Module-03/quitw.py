@@ -5,4 +5,3 @@ while quit != "quit":
     quit = input("?")
     aantal += 1
 print(aantal)
-
