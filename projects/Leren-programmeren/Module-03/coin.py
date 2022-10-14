@@ -2,7 +2,7 @@
 # number of student: 99071902
 # purpose of program: To see how much change to give and how much change you gave
 # function of program: calculate how much change to give, how much change has been given and how much change you should've payed
-# structure of program:
+# structure of program: recieve int's from inputs, then calculates how much change to give and how much change has been given
 
 toPay = int(float(input('Amount to pay: ')) * 100)  # toPay is a user input * 100
 paid = int(float(input('Paid amount: ')) * 100)  # paid is a user input * 100
@@ -22,7 +22,7 @@ if change > 0:  # check if var change is greater than 0
             change -= nrCoinsReturned * coinValue  #
             amountReturned += str(coinValue) + " x" + str(nrCoinsReturned) + "\n"
 
-        # comment on code below:
+        # comment on code below: coinValue goes from 500 all the way down to 0
         if coinValue == 500:
             coinValue = 300
         elif coinValue == 300:
@@ -42,7 +42,7 @@ if change > 0:  # check if var change is greater than 0
         else:
             coinValue = 0
 
-if change > 0:  #
+if change > 0:  # Checks if change is greater than 0
     print('Change not returned: ', str(change) + ' cents')
 
 else:
