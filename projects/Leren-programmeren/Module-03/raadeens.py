@@ -1,5 +1,4 @@
 import random
-import math
 
 rounds = 0
 tries = 0
@@ -9,7 +8,7 @@ points = 0
 while rounds < 20 and userInput != "quit":
     rounds += 1
     print(f"rounds: {rounds}")
-    randomNum = random.randint(1,1000)
+    randomNum = random.randint(1, 1000)
     for i in range(1,10):
         print(f"\ntries: {i}")
         userInput = input("enter a whole number between 1-1000: ")
