@@ -1,7 +1,7 @@
 boodschappen = {}
 userinput = input("wilt u iets toevoegen?(j/n): ").lower()
 
-while userinput == "j":
+while not userinput != "j":
     grocery = input("Wat wilt u toevoegen: ").capitalize()
     amount = int(input("Hoeveel wilt u er van toevoegen: "))
     if grocery in boodschappen:

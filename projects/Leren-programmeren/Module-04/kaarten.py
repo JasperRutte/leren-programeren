@@ -1,19 +1,18 @@
 import random
 
-soort = ["harten ", "klaveren ", "schoppen ", "ruiten "]
-nummers_plaatjes = ["aas", "2", "3", "4", "5", "6", "7", "8", "9", "10", "boer", "vrouw", "heer"]
-shuffled = ["joker", "joker"]
+SOORT = ("harten ", "klaveren ", "schoppen ", "ruiten ")
+NUMMERS_PLAATJES = ("aas", "2", "3", "4", "5", "6", "7", "8", "9", "10", "boer", "vrouw", "heer")
+deck = ["joker", "joker"]
 
-for x in range(0,4):
-    a = soort[x]
-    for y in range(0, 13):
-        b = nummers_plaatjes[y]
+for a in SOORT:
+    for b in NUMMERS_PLAATJES:
         ab = a + b
-        shuffled.append(ab)
+        deck.append(ab)
 
-random.shuffle(shuffled)
+random.shuffle(deck)
 
-for i in range(1,6):
-    print(f"kaar {i}: {shuffled[i]}")
+for i in range(1,8):
+    print(f"kaar {i}: {deck[i]}")
+    deck.pop(i)
 
-print(shuffled)
+print(f"aantal kaarten: {len(deck)} {deck}")
