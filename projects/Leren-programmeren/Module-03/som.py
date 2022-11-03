@@ -6,4 +6,4 @@ while som < 1000:
     getal += 1
     som += getal
     layout += f'+ {getal} '
-    print(f'{layout}= {som}')
+    print(f'{layout} = {som}')
