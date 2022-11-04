@@ -1,14 +1,16 @@
 import random
 
 colors = ["Rood", "Blauw", "Groen", "Geel", "Bruin"]
-amount = [0, 0, 0, 0, 0]
 results = {}
 
 userinput = int(input("Hoeveel: "))
 
-for i in range(0, userinput):
+for i in range(userinput):
     a = random.randint(0, 4)
-    amount[a] += 1
-    results.update({colors[a]: amount[a]})
+    if colors[a] not in results:
+        results.update({colors[a]: 1})
+    else:
+        x = results.get(colors[a]) + 1
+        results.update({colors[a]: x})
 
 print(results)
