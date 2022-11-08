@@ -1,8 +1,9 @@
 from fruitmand import fruitmand
 import random
+import math
 
 # opdracht 1
-# print(fruitmand)
+  # print(fruitmand)
 
 # opdracht 2
 # print(len(fruitmand))
@@ -22,3 +23,12 @@ import random
 # a = len(fruitmand) - 1
 # for i in range((a), -1, -1):
 #     print(fruitmand[i]['name'])
+
+# opdracht 6
+# print(fruitmand[1]['weight'])
+
+# opdracht 7
+# for fruit in fruitmand:
+#   if fruit["round"]:
+#     print(fruit["name"])
+
