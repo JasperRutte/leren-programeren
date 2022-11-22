@@ -20,9 +20,9 @@ import math
 #     print(fruitmand[random_fruit]['name'])
 
 # opdracht 5
-# a = len(fruitmand) - 1
-# for i in range((a), -1, -1):
-#     print(fruitmand[i]['name'])
+a = len(fruitmand) - 1
+for i in range((a), -1, -1):
+    print(fruitmand[i]['name'])
 
 # opdracht 6
 # print(fruitmand[1]['weight'])
@@ -47,7 +47,6 @@ import math
 #   print(fruitmand[i]['color'])
 
 # opdracht 10
-a = sorted(fruitmand, key=lambda i: i['weight'])
-for i in a:
-    print(f'{i["name"]}: {i["weight"]}')
-
+# a = sorted(fruitmand, key=lambda i: i['weight'])
+# for i in a:
+#     print(f'{i["name"]}: {i["weight"]}')
