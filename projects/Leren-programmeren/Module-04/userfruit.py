@@ -5,22 +5,21 @@ isFound = False
 roundTrue = 0
 roundFalse = 0
 
-
 while not isFound:
-    askColor = input("kleur? ")
+    askColor = input("kleur? ").lower()
     for i in fruitmand:
         if askColor == i['color']:
-            print("test")
+            if i['round']:
+                roundTrue += 1
+            else:
+                roundFalse += 1
             isFound = True
-            break
-        else:
-            print("bestaat niet")
+    if not isFound:
+        print(f"De kleur {askColor} zit er niet in de fruitmand")
 
-
-if isFound:
-    if roundTrue > roundFalse:
-        print(f'Er zijn {roundTrue - roundFalse} meer ronde vruchten dan niet ronde vruchten in de kleur {askColor}')
-    elif roundTrue < roundFalse:
+if roundTrue > roundFalse:
+    print(f'Er zijn {roundTrue - roundFalse} meer ronde vruchten dan niet ronde vruchten in de kleur {askColor}')
+elif roundTrue < roundFalse:
         print(f'Er zijn {abs(roundTrue - roundFalse)} minder ronde vruchten dan niet ronde vruchten in de kleur {askColor}')
-    elif roundTrue == roundFalse:
-        print(f'Er zijn {roundTrue} ronde vruchten en {roundFalse} niet ronde vruchten in de kleur {askColor}')
+elif roundTrue == roundFalse:
+    print(f'Er zijn {roundTrue} ronde vruchten en {roundFalse} niet ronde vruchten in de kleur {askColor}')
