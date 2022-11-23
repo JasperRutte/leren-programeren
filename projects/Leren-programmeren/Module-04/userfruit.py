@@ -1,6 +1,6 @@
 from fruitmand import fruitmand
 
-askColor = ""
+
 isFound = False
 roundTrue = 0
 roundFalse = 0

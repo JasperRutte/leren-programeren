@@ -20,9 +20,9 @@ import math
 #     print(fruitmand[random_fruit]['name'])
 
 # opdracht 5
-a = len(fruitmand) - 1
-for i in range((a), -1, -1):
-    print(fruitmand[i]['name'])
+# a = len(fruitmand) - 1
+# for i in range((a), -1, -1):
+#     print(fruitmand[i]['name'])
 
 # opdracht 6
 # print(fruitmand[1]['weight'])
@@ -50,3 +50,22 @@ for i in range((a), -1, -1):
 # a = sorted(fruitmand, key=lambda i: i['weight'])
 # for i in a:
 #     print(f'{i["name"]}: {i["weight"]}')
+
+# opdracht 12
+names = []
+colors = []
+weight = []
+
+for i in fruitmand:
+    names.append(i['name'])
+names.sort(key=len, reverse=True)
+
+for i in fruitmand:
+    if i['name'] == names[0]:
+        colors.append(i['color'])
+        weight.append(i['weight'])
+
+letter_amount = len(names[0])
+
+print(f"De '{names[0]}' ({letter_amount} letters) heeft een {colors[0]} kleur en een gewicht van {weight[0]}G")
+
