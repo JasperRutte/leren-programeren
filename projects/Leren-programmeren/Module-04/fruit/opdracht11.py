@@ -21,5 +21,5 @@ if roundTrue > roundFalse:
     print(f'Er zijn {roundTrue - roundFalse} meer ronde vruchten dan niet ronde vruchten in de kleur {askColor}')
 elif roundTrue < roundFalse:
         print(f'Er zijn {abs(roundTrue - roundFalse)} minder ronde vruchten dan niet ronde vruchten in de kleur {askColor}')
-elif roundTrue == roundFalse:
+else:
     print(f'Er zijn {roundTrue} ronde vruchten en {roundFalse} niet ronde vruchten in de kleur {askColor}')

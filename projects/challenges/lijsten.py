@@ -1,3 +1,4 @@
+#opdracht 1
 # cijfers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 #
 # for x in cijfers:
@@ -39,7 +40,15 @@ print(nummers)
 
 print(nummers[25])
 
+nummers[0], nummers[49] = nummers[49], nummers[0]
+print(nummers)
 
-print(nummers)
-nummers.
-print(nummers)
+hoeveel = 0
+lst = [1, "aap", 2, "apen", 3, "watermeloen", 15, 27, 15, "lekker bezig", "6"]
+
+for numbers in lst:
+ if str(type(numbers)) == "<class 'int'>":
+     hoeveel += 1
+print(hoeveel)
+
+
