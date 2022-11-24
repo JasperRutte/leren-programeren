@@ -1,4 +1,4 @@
-from fruitmand import fruitmand
+from fruitmandplus import fruitmand
 import random
 import math
 

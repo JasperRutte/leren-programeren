@@ -1,5 +1,8 @@
-from fruitmand import fruitmand
+from fruitmandplus import fruitmand
 
-fruitmand.pop(4)
 for i in fruitmand:
-    print(fruitmand[i]['color'])
+    if i['name'] == 'druif':
+        fruitmand.remove(i)
+
+for i in fruitmand:
+    print(i['color'])
