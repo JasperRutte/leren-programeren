@@ -1,6 +1,11 @@
-.container {
+body{
+    background-color: #faf9f2;
     font-family: "Ubuntu Condensed", serif;
-    margin: 40px auto;
+    font-size: 4px;
+}
+
+.container {
+    margin: 50px auto;
     width: 30%;
     border: 3px solid black;
     border-radius: 15px;
@@ -8,10 +13,17 @@
     font-size: 20px;
 }
 
-.picture {
-    margin: -15% auto -15% 60%;
+h1{
+    color: #2b2b2b;
 }
 
-img {
-    border-radius: 10%;
+h2{
+    color: #2b2b2b;
 }
+
+.picture {
+    float: right;
+    padding-right: 2.5vh;
+}
+
+
