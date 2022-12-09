@@ -12,7 +12,7 @@ for a in SOORT:
 random.shuffle(deck)
 
 for i in range(1,8):
-    print(f"kaar {i}: {deck[i]}")
+    print(f"kaart {i}: {deck[i]}")
     deck.pop(i)
 
 print(f"aantal kaarten: {len(deck)} {deck}")

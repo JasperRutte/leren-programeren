@@ -3,4 +3,4 @@ def hello(number: int):
         print(f"Hello from function town {x}")
 
 
-hello(19)
+hello(int(input("Welk cijfer: ")))

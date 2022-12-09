@@ -6,7 +6,7 @@ results = {}
 userinput = int(input("Hoeveel: "))
 
 for i in range(userinput):
-    a = random.randint(0, 4)
+    a = random.randint(0, len(colors)-1)
     if colors[a] not in results:
         results.update({colors[a]: 1})
     else:
