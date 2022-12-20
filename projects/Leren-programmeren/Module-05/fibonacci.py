@@ -1,14 +1,9 @@
-# maak lijst met fibonacci reeks
-# geef een getal mee aan de functie
-# kijk of het getal in de reeks zit
-# ga vanaf dat getal de hoeveelheid geta
-
-
 def fibo(nummer: int):
     nieuw = 1
     oud = 0
     oud2 = 0
     reeks = []
+    test = []
     for x in range(0, 100):
         reeks.append(oud)
         oud = nieuw
@@ -16,11 +11,12 @@ def fibo(nummer: int):
         oud2 = oud
 
     if nummer not in reeks:
-        print(f"{nummer} bestaat niet in de reeks...")
-    else:
-        for x in reeks:
-            if nummer == reeks:
-                x - 1
-                print(reeks[x])
+        print(f"{nummer} zit iet in reeks")
+    elif nummer in reeks:
+        for x in range(0, len(reeks)):
+            if reeks[x] == nummer:
+                for y in range(x-1, len(reeks)):
+                    test.append(reeks[y])
+    return test
 
-
+print(fibo(55))
