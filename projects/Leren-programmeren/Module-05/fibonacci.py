@@ -19,6 +19,7 @@ def fibo(nummer: int):
                     test.append(reeks[y])
     return test
 
+
 print(fibo(3))
 
 
@@ -42,5 +43,6 @@ def fibo2(nummer: int):
                 return test
             else:
                 test.append(x)
+
 
 print(fibo2(1))
