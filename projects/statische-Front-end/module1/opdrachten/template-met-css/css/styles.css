@@ -1,0 +1,7 @@
+.container{
+    width: 300px;
+    height: 200px;
+    padding: 40px;
+    margin: 40px;
+    border: dashed 20px crimson;
+}

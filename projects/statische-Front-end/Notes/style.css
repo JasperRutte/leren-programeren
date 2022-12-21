@@ -1,0 +1,35 @@
+/* in this css file im giving some examples for styling options.*/
+
+body {
+    background: ;
+}
+
+h1 {
+    color: cadetblue;
+}
+
+h2 {
+    color: green;
+}
+
+h3 {
+    color: rebeccapurple;
+}
+
+h4 {
+    color: seashell;
+}
+
+h5 {
+    color: springgreen;
+}
+
+h6 {
+    color: palegoldenrod;
+}
+
+.container {
+    margin: auto 30%; /*margins are used for positioning on a website, there are also paddings but dw about margins or paddings for now.*/
+    border: solid black 5px;
+    border-radius: 5px;
+}
