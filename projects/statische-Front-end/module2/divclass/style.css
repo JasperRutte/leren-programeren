@@ -1,0 +1,22 @@
+h1 {
+    color: aquamarine;
+}
+
+.first {
+    background-color: green;
+    font-family: "Ubuntu Mono";
+    font-weight: bold;
+}
+
+.first h2 {
+    color: blueviolet;
+}
+
+.second {
+    background-color: crimson;
+    font-family: "Fira Sans Compressed Heavy";
+}
+
+.second h2 {
+    color: aqua;
+}
