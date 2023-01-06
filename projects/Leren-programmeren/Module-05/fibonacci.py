@@ -20,7 +20,7 @@ def fibo(nummer: int):
     return test
 
 
-print(fibo(3))
+print(fibo(1))
 
 
 def fibo2(nummer: int):
@@ -45,4 +45,4 @@ def fibo2(nummer: int):
                 test.append(x)
 
 
-print(fibo2(1))
+print(fibo2(5))
