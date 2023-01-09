@@ -1,14 +1,8 @@
 def fibo(nummer: int):
-    nieuw = 1
-    oud = 0
-    oud2 = 0
-    reeks = []
-    test = []
+    reeks = [0, 1]
+    user_reeks = []
     for x in range(0, 50):
-        reeks.append(oud)
-        oud = nieuw
-        nieuw += oud2
-        oud2 = oud
+        reeks.append(reeks[-2] + reeks[-1])
 
     if nummer not in reeks:
         print(f"{nummer} zit iet in reeks")
@@ -16,33 +10,24 @@ def fibo(nummer: int):
         for x in range(0, len(reeks)):
             if reeks[x] == nummer:
                 for y in range(x, x + 10):
-                    test.append(reeks[y])
-    return test
+                    user_reeks.append(reeks[y])
+    return user_reeks
 
 
-print(fibo(1))
+print(fibo(0))
 
 
-def fibo2(nummer: int):
-    nieuw = 1
-    oud = 0
-    oud2 = 0
-    reeks = []
-    test = []
-    for x in range(0, 50):
-        reeks.append(oud)
-        oud = nieuw
-        nieuw += oud2
-        oud2 = oud
+# extra opdracht van fibonacci
+def fibo(nummer: int):
+    reeks = [0, 1]
+
+    for x in range(0, 100):
+        reeks.append(reeks[-2] + reeks[-1])
+
     if nummer not in reeks:
-        print(f"{nummer} zit niet in de reeks...")
-    else:
-        for x in reeks:
-            if x == nummer:
-                test.append(x)
-                return test
-            else:
-                test.append(x)
+        print(f"{nummer} zit niet in reeks")
+    elif nummer in reeks:
+        print(reeks[0:reeks.index(nummer) + 1])
 
 
-print(fibo2(5))
+fibo(0)
