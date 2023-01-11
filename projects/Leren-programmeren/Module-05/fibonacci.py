@@ -14,7 +14,7 @@ def fibo(nummer: int):
     return user_reeks
 
 
-print(fibo(0))
+print(fibo(55))
 
 
 # extra opdracht van fibonacci
