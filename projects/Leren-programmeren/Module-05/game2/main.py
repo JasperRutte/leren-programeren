@@ -62,8 +62,7 @@ else:
 # first fight, they decide fight or run
 time.sleep(1)
 print("You encountered a goblin!")
-fightRun = input("Do you want to fight it run? (Fight/Run): ").upper()
-fighting(fightRun)
+run_or_fight(user_hp, gold, "goblin")
 
 # second fight, they decide fight or run
 printDelay("You continue wandering in the forest...")
