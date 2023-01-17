@@ -1,21 +1,43 @@
 import random
 import time
-from data import *
 
-def printDelay(t: str, d=0.75):  # function to print with delay
+
+def printDelay(t: str, d=0.25):  # function to print with delay
     time.sleep(d)
     print(t)
 
-def death(username: str, gold: int):
+
+def death(username: str, gold: int, weapon: str, play_again: bool):
     print("GAME OVER...")
-    printDelay(f"{username} had {gold} gold on him")
+    printDelay(f"'{username}' had {gold} gold")
+
+    retry = input("Do you  want to play again? (Y/N): ").upper()
+    while retry != "Y" and retry != "N":
+        printDelay("Invalid answer...")
+        retry = input("Do you  want to play again? (Y/N): ").upper()
+
+    if retry == "Y":
+        play_again = True
+        gold = 0
+        username = ""
+        weapon = "None"
+        print("Sending you back in: ")
+        for x in range(3, 0, -1):
+            printDelay(x)
+        return username, gold, weapon, play_again
+    else:
+        print("Closing game in: ")
+        for x in range(3, 0, -1):
+            printDelay(x)
+        exit()
 
 
-def run_or_fight(user_hp: int, user_gold: int, monster: str):
+def run_or_fight(username: str, user_hp: int, user_gold: int, weapon_type: str, monster: str):
     printDelay(f"""
-User stats: 
+{username} stats: 
 HP: {user_hp}
-Gold: {user_gold}""")
+Gold: {user_gold}
+Weapon: {weapon_type}\n""")
 
     if monster == "goblin":
         monster_hp = 3
@@ -29,14 +51,19 @@ Gold: {user_gold}""")
     while choice != "FIGHT" and choice != "RUN":
         print("Invalid answer...")
         choice = input("fight/run: ").upper()
+
     if choice == "FIGHT":
-        fight(user_hp, user_gold, monster, monster_hp)
+        return fight(username, user_hp, user_gold, weapon_type, monster, monster_hp)
     else:
-        run()
+        return run(username, user_gold, weapon_type, False)
 
 
-def fight(user_hp: int, user_gold: int, monster: str, monster_hp: int):
+def fight(username, user_hp: int, user_gold: int, weapon: str, monster: str, monster_hp: int):
     print(f"You decided to fight the {monster}!")
+    if weapon == "None":
+        printDelay("You died since you dont have a weapon")
+        death(username, user_gold, weapon, True)
+
     while user_hp != 0 and monster_hp != 0:
         user_attack = random.randint(0, 3)
         time.sleep(0.5)
@@ -62,20 +89,23 @@ def fight(user_hp: int, user_gold: int, monster: str, monster_hp: int):
         gold_gained = random.randint(1, 6)
         user_gold += gold_gained
         printDelay(f"You won and gained {gold_gained} gold!")
-        printDelay(f"""User stats:
+        printDelay(f"""{username} stats:
 HP: {user_hp}
-Gold: {user_gold}""")
-        return user_hp, user_gold
+Gold: {user_gold}
+Weapon: {weapon}""")
+    return user_hp, user_gold
 
 
-def run():
+def run(username: str, gold: int, weapon: str, play_again: bool):
     printDelay("You decided to run away!")
-    random_num = random.randint(1,4)
+    random_num = 1
     user_num = int(input("Choose a number between 1-3: "))
     while user_num != 1 and user_num != 2 and user_num != 3:
         print("invalid answer...")
         user_num = int(input("Choose a number between 1-3: "))
     if random_num == user_num:
         print("You successfully ran away!")
+        return gold, weapon
     else:
         print("You failed to run away...")
+        return death(username, gold, weapon, play_again)
