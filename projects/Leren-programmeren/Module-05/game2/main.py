@@ -4,12 +4,12 @@ import random
 import time
 
 # user picks username
-Player = Player("", 10, 0, "None")
+player = Player("", 10, 0, "None")
 printDelay("You wake up in a house...")
 printDelay("random npc: 'Hey you, you're finally awake.'")
 printDelay("random npc: 'What is your name if i may ask?'")
-Player.name = input("Input username: ")
-printDelay(f"random npc: 'Hello '{Player.name}' it's nice to meet you.'")
+player.name = input("Input username: ")
+printDelay(f"random npc: 'Hello '{player.name}' it's nice to meet you.'")
 
 # user decides if they help the village
 time.sleep(1)
@@ -22,7 +22,7 @@ if helpVillage == "Y":
     printDelay("random npc: 'Thank you so much, you are a true hero.'")
 elif helpVillage == "N":
     printDelay("The village later got destroyed by the dragon.")
-    death(Player.name, Player.gold, Player.weapon, play_again)
+    death(player.name, player.gold, player.weapon, play_again)
 
 # user decides if theP want a sword or not
 time.sleep(1)
@@ -33,7 +33,7 @@ while weapon != "Y" and weapon != "N":
 
 if weapon == "Y":
     printDelay("Great! Take good care of it!")
-    Player.weapon = iron_sword
+    player.weapon = iron_sword
 else:
     printDelay("The choice was yours...")
 
@@ -50,13 +50,13 @@ if dragonFight1 == "TRAIN":
 else:
     printDelay("You tried fighting the dragon but sadly failed...")
     printDelay("To fight the dragon you  need a dragon sword!")
-    death(Player.name, Player.gold, Player.weapon, play_again)
+    death(player.name, player.gold, player.weapon, play_again)
 
 
 # first fight, they decide fight or run
 time.sleep(1)
 while fight_again:
-    Player.hp, Player.gold = run_or_fight(Player.name, Player.hp, Player.gold, Player.weapon, "goblin")
+    player.hp, player.gold = run_or_fight(player.name, player.hp, player.gold, player.weapon, "goblin")
     fight_again = False
     fight_again = input("Do want to fight more goblins or walk deeper into the forest? (fight/walk): ").upper()
     while fight_again != "FIGHT" and fight_again != "WALK":
@@ -69,16 +69,18 @@ while fight_again:
 
 
 # second fight, they decide fight or run
+
 printDelay("You continue wandering in the forest...")
 printDelay("You encounter a skeleton wielding a strange sword")
-fightRun = input("Do you want to fight it run? (Fight/Run): ").upper()
-if fightRun == "FIGHT":
-    Player.hp, Player.gold = run_or_fight(Player.name, Player.hp, Player.gold, Player.weapon, "skeleton")
-    Player.weapon = dragon_sword
+player.hp, player.gold = run_or_fight(player.name, player.hp, player.gold, player.weapon, "skeleton")
+player.weapon = dragon_sword
 
-# boss fight, they need dragon sword to fight in and hit boss 3 times
-printDelay("You are now going to fight the dragon!")
-if not Player.weapon != dragon_sword:
-    death(Player.name, Player.gold, Player.gold, play_again)
+printDelay("You proceed to walk further into the forest")
+printDelay("You hear some weird noises, you went to check it out.")
+printDelay("You find the dragon nibbling on some dead sheep")
+
+time.sleep(1)
+if player.weapon != dragon_sword:
+    death(player.name, player.gold, player.gold, play_again)
 else:
-    run_or_fight(Player.name, Player.hp, Player.gold, Player.weapon, "dragon")
+    run_or_fight(player.name, player.hp, player.gold, player.weapon, "dragon")

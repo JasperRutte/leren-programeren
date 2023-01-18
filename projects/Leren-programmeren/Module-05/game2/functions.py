@@ -43,6 +43,8 @@ Weapon: {weapon_type}\n""")
         monster_hp = 3
     elif monster == "skeleton":
         monster_hp = 5
+    elif monster == "dragon":
+        monster_hp = 8
 
     printDelay(f"You encountered a {monster}!")
     printDelay(f"It has {monster_hp} hp")
@@ -58,10 +60,14 @@ Weapon: {weapon_type}\n""")
         return run(username, user_gold, weapon_type, False)
 
 
-def fight(username, user_hp: int, user_gold: int, weapon: str, monster: str, monster_hp: int):
+def fight(username: str, user_hp: int, user_gold: int, weapon: str, monster: str, monster_hp: int):
     print(f"You decided to fight the {monster}!")
     if weapon == "None":
         printDelay("You died since you dont have a weapon")
+        death(username, user_gold, weapon, True)
+
+    if monster == "dragon" and weapon != "Dragon Sword":
+        printDelay("You died since you didnt have the Dragon Sword")
         death(username, user_gold, weapon, True)
 
     while user_hp != 0 and monster_hp != 0:
@@ -109,3 +115,12 @@ def run(username: str, gold: int, weapon: str, play_again: bool):
     else:
         print("You failed to run away...")
         return death(username, gold, weapon, play_again)
+
+
+def gold_drops(monster: str):
+    if monster == "dragon":
+        gold_gained = random.randint(10, 15)
+    elif monster == "skeleton":
+        gold_gained = random.randint(5, 10)
+    elif monster == "goblin":
+        gold_gained = random.randint(1, 5)
