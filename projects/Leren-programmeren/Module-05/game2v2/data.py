@@ -11,11 +11,12 @@ class Monster:
         self.hp = hp
 
 # weapons
-no_sword = "None"
-iron_sword = "Iron Sword"
+no_weapon = "None"
+iron_sword = "Iron sword"
 dragon_sword = "Dragon Sword"
 
-
-# other data
-play = True
+# other
 fight_again = True
+play_again = True
+
+PLAYER = Player("", 1, 0, no_weapon)
