@@ -24,7 +24,7 @@ while play_again:
     helpVillage = input("random npc: There is a dragon near the village will you help us kill it?' (Y/N): ").upper()
     while helpVillage != "Y" and helpVillage != "N":
         printDelay("Invalid answer...")
-        helpVillage = input("Help village? (Y/N)").upper()
+        helpVillage = input("Help village? (Y/N): ").upper()
         print(helpVillage)
 
     if helpVillage == "Y":
@@ -58,7 +58,10 @@ while play_again:
         dragonFight1 = input("Do you want to train or immediately fight the dragon? (Train/Fight): ").upper()
 
     if dragonFight1 == "FIGHT":
-        run_fight(dragon)
+        printDelay("You tried to encounter the dragon but died because of the strong aura from the dragon...")
+        printDelay("You need to get the Dragon Sword to block this aura and come close to fight the dragon")
+        retry(True)
+        continue
     elif dragonFight1 == "TRAIN":
         printDelay("Good, you shall now go to the forest and start your training")
         printDelay("You start wandering through the forest")
@@ -66,25 +69,32 @@ while play_again:
     # first fight, they decide fight or run
     time.sleep(1)
     fight_again = True
-    while fight_again:
+    while fight_again and PLAYER.hp != 0:
         goblin = Monster("Goblin", 5)
         run_fight(goblin)
         while fight_again != "Y" and fight_again != "N":
-            print(PLAYER.hp)
             if PLAYER.hp == 0:
                 break
             fight_again = input("Do you want to fight more goblins? (Y/N): ").upper()
             if fight_again == "N":
                 fight_again = False
-    continue
+            break
+    if PLAYER.hp == 0:
+        continue
+
     # second fight, they decide fight or run
     printDelay("You continue wandering in the forest...")
     printDelay("You see a skinny figure wielding a mysterious sword.")
     run_fight(skeleton)
+    if PLAYER.hp == 0:
+        continue
 
     # boss fight, they need dragon sword to fight in and hit boss 3 times
     printDelay("You are now going to fight the dragon!")
     run_fight(dragon)
+    if PLAYER.hp == 0:
+        continue
+
     retry(False)
 
 

@@ -13,6 +13,7 @@ def retry(death: bool):  # When game is over, user decides to play again or not
         printDelay("GAME OVER\n")
         printDelay(f"{PLAYER.name} had {PLAYER.gold} gold.")
     elif death:
+        PLAYER.hp = 0
         printDelay("GAME OVER\n")
         printDelay(f"{PLAYER.name} had {PLAYER.gold} gold.")
     else:
@@ -22,13 +23,13 @@ def retry(death: bool):  # When game is over, user decides to play again or not
     playAgain = input("Do you wish to play again? (Y/N): ").upper()
     while playAgain != "Y" and play_again != "N":
         printDelay("Invalid answer")
-        playAgain = input("Play again? (Y/N): ")
+        playAgain = input("Play again? (Y/N): ").upper()
 
     if playAgain == "Y":
         print("Sending you back in:")
         for x in range(3, 0, -1):
             printDelay(f"{x}")
-        return
+        return True
     else:
         print("Stopping game in:")
         for x in range(3, 0, -1):
@@ -98,6 +99,7 @@ def fight(monster):  # function for fighting monsters
         WEAPON: {PLAYER.weapon}\n""")
         return
     else:
+        PLAYER.hp = 0
         return retry(True)
 
 
