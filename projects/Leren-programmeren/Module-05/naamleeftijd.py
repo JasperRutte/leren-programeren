@@ -21,4 +21,30 @@ def names_ages():
         dct = {}
 
 
-names_ages()
+
+lst = []
+again = True
+
+
+def name_age():
+    dct = {}
+    name = input("Name: ")
+    if name == "stop":
+        return name
+    age = input("Age: ")
+    if age == "stop":
+        return age
+
+    dct.update({"Name": name})
+    dct.update({"Age": age})
+    return dct
+
+
+while again:
+    again = name_age()
+    if again == "stop":
+        break
+    else:
+        lst.append(again)
+
+name_age()

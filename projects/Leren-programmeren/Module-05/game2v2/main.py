@@ -72,9 +72,7 @@ while play_again:
     while fight_again and PLAYER.hp != 0:
         goblin = Monster("Goblin", 5)
         run_fight(goblin)
-        while fight_again != "Y" and fight_again != "N":
-            if PLAYER.hp == 0:
-                break
+        while fight_again != "Y" and fight_again != "N" and PLAYER.hp > 0:
             fight_again = input("Do you want to fight more goblins? (Y/N): ").upper()
             if fight_again == "N":
                 fight_again = False
@@ -96,6 +94,3 @@ while play_again:
         continue
 
     retry(False)
-
-
-print("test")
