@@ -1,6 +1,7 @@
 import time
 from termcolor import colored
-from data import JOURNEY_IN_DAYS, COST_FOOD_HORSE_COPPER_PER_DAY, COST_FOOD_HUMAN_COPPER_PER_DAY
+from data import *
+import math
 
 ##################### M04.D02.O2 #####################
 
@@ -50,21 +51,39 @@ def getAdventuringFriends(friends:list) -> list:
 ##################### M04.D02.O6 #####################
 
 def getNumberOfHorsesNeeded(people:int) -> int:
-    pass
+    return math.ceil(people / 2)
 
 def getNumberOfTentsNeeded(people:int) -> int:
-    pass
+    return math.ceil(people / 3)
 
 def getTotalRentalCost(horses:int, tents:int) -> float:
-    pass
+    return (horses * silver2gold(COST_HORSE_SILVER_PER_DAY) * JOURNEY_IN_DAYS) + (tents * (COST_TENT_GOLD_PER_WEEK * math.ceil(JOURNEY_IN_DAYS / 7)) )
 
-##################### M04.D02.O7 #####################
+###################### M04.D02.O7 #####################
 
-def getItemsAsText(items:list) -> str:
-    pass
+def getItemsValueInGold(items: list) -> float:
+    value = float()
+    for item in items:
+        amount = item['amount']
+        pricetype = item['price']['type']
+        price = item['price']['amount']
 
-def getItemsValueInGold(items:list) -> float:
-    pass
+def getItemsValueInGold(items: list) -> float:
+    value = float()
+    for item in items:
+        amount = item['amount']
+        pricetype = item['price']['type']
+        price = item['price']['amount']
+
+        if pricetype == 'copper':
+            value += amount * copper2gold(price)
+        elif pricetype == 'silver':
+            value += amount * silver2gold(price)
+        elif pricetype == 'platinum':
+            value += amount * platinum2gold(price)
+        else:
+            value += price
+    return value
 
 ##################### M04.D02.O8 #####################
 
