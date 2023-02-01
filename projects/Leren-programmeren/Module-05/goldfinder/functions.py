@@ -12,8 +12,7 @@ def silver2gold(amount:int) -> float:
 	return amount / 5
 
 def copper2gold(amount:int) -> float:
-	silver = amount / 10
-	return silver / 5
+	return silver2gold(copper2silver(amount))
 
 def platinum2gold(amount:int) -> float:
 	return amount * 25
@@ -86,14 +85,23 @@ def getItemsValueInGold(items: list) -> float:
 	return value
 
 ##################### M04.D02.O8 #####################
-
 def getCashInGoldFromPeople(people:list) -> float:
-	pass
+	priceGold = 0
+	for person in people:
+		if person['cash']['platinum'] != 0:
+			priceGold += platinum2gold(person['cash']['platinum'])
+		if person['cash']['gold'] != 0:
+			priceGold += person['cash']['gold']
+		if person['cash']['silver'] != 0:
+			priceGold += silver2gold(person['cash']['silver'])
+		if person['cash']['copper'] != 0:
+			priceGold += copper2gold(person['cash']['copper'])
 
+		return round(priceGold, 2)
 ##################### M04.D02.O9 #####################
 
 def getInterestingInvestors(investors:list) -> list:
-	pass
+	
 
 def getAdventuringInvestors(investors:list) -> list:
 	pass
