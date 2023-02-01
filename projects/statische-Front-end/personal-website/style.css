@@ -1,34 +1,57 @@
+* {
+    font-weight: lighter;
+}
+
 body {
     background: #2B2C28;
 }
 
 container {
-    font-family: "Ubuntu Mono";
+    font-family: "Ubuntu mono";
     color: #FFFAFB;
+}
+
+
+.welcome {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+
+}
+
+.introduction {
+    font-size: 1.2em;
+}
+
+.testline {
+    border-bottom: 3px solid #7DE2D1;
+    width: 30%;
 }
 
 #test {
     float: right;
     flow-from: none;
-    font
-}
-
-.welcome {
-    margin: 200px auto;
-    width: 50%;
-    padding: 10px;
-    border: 3px solid green;
+    border-radius: 3%;
+    opacity: 70%;
 }
 
 #introduce {
-
+    color: #A9FFF1;
+    margin-bottom: 5px;
+    font-size: 2em;
 }
 
 #name {
-
+    font-size: 4.7em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    filter: drop-shadow(0px 4px 0px #000000);
 }
 
 #study {
-
+    margin-top: 5px;
+    color: #9B9B9B;
+    margin-left: 5px;
+    font-size: 2em;
 }
 
