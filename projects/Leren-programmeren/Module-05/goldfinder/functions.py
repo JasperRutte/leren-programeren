@@ -61,7 +61,7 @@ pass
 
 def getItemsAsText(items:list) -> str:
     itemText = []
-    for item in items: # (f"{item["amount"]}{item["unit"]} {item["name"]}")
+    for item in items:
         itemText.append(f'{item["amount"]}{item["unit"]} {item["name"]}')
     return ", ".join(itemText)
 
@@ -127,7 +127,7 @@ def getTotalInvestorsCosts(investors:list, gear:list) -> float:
 def getMaxAmountOfNightsInInn(leftoverGold:float, people:int, horses:int) -> int:
     humanPerNightGold = silver2gold(COST_INN_HUMAN_SILVER_PER_NIGHT) * people
     horsePerNightGold = copper2gold(COST_INN_HORSE_COPPER_PER_NIGHT) * horses
-    return int(leftoverGold / (humanPerNightGold + horsePerNightGold))
+    return int(leftoverGold - (humanPerNightGold + horsePerNightGold))
 
 def getJourneyInnCostsInGold(nightsInInn:int, people:int, horses:int) -> float:
     goldPerNight = silver2gold(COST_INN_HUMAN_SILVER_PER_NIGHT)
@@ -139,10 +139,18 @@ def getJourneyInnCostsInGold(nightsInInn:int, people:int, horses:int) -> float:
 ##################### M04.D02.O12 #####################
 
 def getInvestorsCuts(profitGold:float, investors:list) -> list:
-	pass
+    list = []
+    for item in investors:
+        if item['profitReturn'] < 10:
+            list.append(round(item['profitReturn'] / 100 * profitGold, 2))
+    return list
 
 def getAdventurerCut(profitGold:float, investorsCuts:list, fellowship:list) -> float:
-	pass
+    investorCuts = 0
+    for item in investorsCuts:
+        investorCuts += item
+    return round((profitGold - investorCuts) / fellowship, 2)
+
 
 ##################### M04.D02.O13 #####################
 
