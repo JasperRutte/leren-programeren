@@ -17,8 +17,22 @@
         //Eigen acties
         spaceShip.run(function () {
             // code  start
+            spaceShip.rotateRight()
+            for (let i = 0; i < 6; i++) {
+                for (let x = 0; x < 4; x++) {
+                    spaceShip.moveForward()
+                }
 
-
+                spaceShip.rotateRight()
+                spaceShip.moveForward()
+                spaceShip.rotateRight()
+                for (let x = 0; x < 4; x++) {
+                    spaceShip.moveForward()
+                }
+                spaceShip.rotateLeft()
+                spaceShip.moveForward()
+                spaceShip.rotateLeft()
+            }
 
             // code  einde
         });
