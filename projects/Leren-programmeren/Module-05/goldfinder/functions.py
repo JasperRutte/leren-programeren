@@ -19,10 +19,10 @@ def platinum2gold(amount:int) -> float:
 
 def getPersonCashInGold(personCash:dict) -> float:
     gold = 0
-    gold += platinum2gold(personCash["platinum"])
-    gold += personCash["gold"]
-    gold += silver2gold(personCash["silver"])
-    gold += copper2gold(personCash["copper"])
+    gold += platinum2gold(personCash['platinum'])
+    gold += personCash['gold']
+    gold += silver2gold(personCash['silver'])
+    gold += copper2gold(personCash['copper'])
     return gold
 
 ##################### M04.D02.O4 #####################
@@ -36,12 +36,13 @@ def getFromListByKeyIs(list:list, key:str, value:any) -> list:
     return [item for item in list if item[key] == value]
 
 def getAdventuringPeople(people:list) -> list:
-    return getFromListByKeyIs(people, "adventuring", True)
+    return getFromListByKeyIs(people, 'adventuring', True)
 
 def getShareWithFriends(friends:list) -> list:
-    return getFromListByKeyIs(friends, "shareWith", True)
+    return getFromListByKeyIs(friends, 'shareWith', True)
+
 def getAdventuringFriends(friends:list) -> list:
-    return getFromListByKeyIs(friends, "adventuring", True)
+    return getFromListByKeyIs(getShareWithFriends(friends), 'adventuring', True)
 
 ##################### M04.D02.O6 #####################
 
@@ -62,54 +63,57 @@ pass
 def getItemsAsText(items:list) -> str:
     itemText = []
     for item in items:
-        itemText.append(f'{item["amount"]}{item["unit"]} {item["name"]}')
-    return ", ".join(itemText)
+        itemText.append(f"{item['amount']}{item['unit']} {item['name']}")
+    return ', '.join(itemText)
 
-def getItemsValueInGold(items:list) -> float:
-    price_gold = 0
-    for a in items:
-        match a["price"]["type"]:
-            case "copper":
-                price_gold += copper2gold(a["price"]["amount"] * a["amount"])
-            case "silver":
-                price_gold += silver2gold(a["price"]["amount"]* a["amount"])
-            case "gold":
-                price_gold += a["price"]["amount"] * a["amount"]
-            case "platinum":
-                price_gold += platinum2gold(a["price"]["amount"] * a["amount"])
-    return round(price_gold,2)
+def getItemsValueInGold(items: list) -> float:
+    value = float()
+    for item in items:
+        amount = item['amount']
+        pricetype = item['price']['type']
+        price = item['price']['amount']
+
+        if pricetype == 'copper':
+            value += amount * copper2gold(price)
+        elif pricetype == 'silver':
+            value += amount * silver2gold(price)
+        elif pricetype == 'platinum':
+            value += amount * platinum2gold(price)
+        else:
+            value += amount * price
+    return value
 
 ##################### M04.D02.O8 #####################
 
 def getCashInGoldFromPeople(people:list) -> float:
     priceGold = 0
     for person in people:
-        if person["cash"]["platinum"] != 0:
-            priceGold += platinum2gold(person["cash"]["platinum"])
+        if person['cash']['platinum'] != 0:
+            priceGold += platinum2gold(person['cash']['platinum'])
         if person['cash']['gold'] != 0:
-            priceGold += person["cash"]["gold"]
-        if person["cash"]["silver"] != 0:
-            priceGold += silver2gold(person["cash"]["silver"])
-        if person["cash"]["copper"] != 0:
-            priceGold += copper2gold(person["cash"]["copper"])
+            priceGold += person['cash']['gold']
+        if person['cash']['silver'] != 0:
+            priceGold += silver2gold(person['cash']['silver'])
+        if person['cash']['copper'] != 0:
+            priceGold += copper2gold(person['cash']['copper'])
     return round(priceGold, 2)
 
 ##################### M04.D02.O9 #####################
 
 def getInterestingInvestors(investors:list) -> list:
-    good_investors = []
-    for people in investors:
-        if people["profitReturn"] <= 10:
-            good_investors.append(people)
-    return good_investors
+    interestingInvestor = []
+    for investor in investors:
+        if investor['profitReturn'] <= 10:
+            interestingInvestor.append(investor)
+    return interestingInvestor
 
 def getAdventuringInvestors(investors:list) -> list:
-    adventure_investors = []
-    for people in investors:
-        if people["adventuring"] and people["profitReturn"] <= 10:
-            adventure_investors.append(people)
-    return adventure_investors
-
+    investors = getInterestingInvestors(investors)
+    adventuringInvestor = []
+    for investor in investors:
+        if investor['adventuring']:
+            adventuringInvestor.append(investor)
+    return adventuringInvestor
 
 def getTotalInvestorsCosts(investors:list, gear:list) -> float:
     price_gold = 0
@@ -119,7 +123,6 @@ def getTotalInvestorsCosts(investors:list, gear:list) -> float:
 
     price_gold += getJourneyFoodCostsInGold(len(adventuring_investors),len(adventuring_investors))
     price_gold += getTotalRentalCost(len(adventuring_investors), len(adventuring_investors))
-    print(price_gold)
     return price_gold
 
 ##################### M04.D02.O10 #####################
@@ -127,7 +130,7 @@ def getTotalInvestorsCosts(investors:list, gear:list) -> float:
 def getMaxAmountOfNightsInInn(leftoverGold:float, people:int, horses:int) -> int:
     humanPerNightGold = silver2gold(COST_INN_HUMAN_SILVER_PER_NIGHT) * people
     horsePerNightGold = copper2gold(COST_INN_HORSE_COPPER_PER_NIGHT) * horses
-    return int(leftoverGold - (humanPerNightGold + horsePerNightGold))
+    return int(leftoverGold / (humanPerNightGold + horsePerNightGold))
 
 def getJourneyInnCostsInGold(nightsInInn:int, people:int, horses:int) -> float:
     goldPerNight = silver2gold(COST_INN_HUMAN_SILVER_PER_NIGHT)
@@ -140,40 +143,67 @@ def getJourneyInnCostsInGold(nightsInInn:int, people:int, horses:int) -> float:
 
 def getInvestorsCuts(profitGold:float, investors:list) -> list:
     list = []
-    for item in investors:
-        if item['profitReturn'] < 10:
-            list.append(round(item['profitReturn'] / 100 * profitGold, 2))
+    investors = getInterestingInvestors(investors)
+    for investor in investors:
+        list.append(round(investor['profitReturn'] / 100 * profitGold, 2))
     return list
 
-def getAdventurerCut(profitGold:float, investorsCuts:list, fellowship:list) -> float:
-    investorCuts = 0
-    for item in investorsCuts:
-        investorCuts += item
-    return round((profitGold - investorCuts) / fellowship, 2)
-
+def getAdventurerCut(profitGold: float, investorsCuts: list, fellowship: int) -> float:
+    totalCut = 0
+    for cut in investorsCuts:
+        totalCut += cut
+    return round((profitGold - totalCut) / fellowship, 2)
 
 ##################### M04.D02.O13 #####################
 
 def getEarnigs(profitGold:float, mainCharacter:dict, friends:list, investors:list) -> list:
-	pass
+    people = [mainCharacter] + friends + investors
+    earnings = []
+
+    adventuringFriends = getAdventuringFriends(friends)
+    interestingInvestors = getInterestingInvestors(investors)
+    adventuringInvestors = getAdventuringInvestors(investors)
+    investorsCuts = getInvestorsCuts(profitGold, investors)
+    goldCut = getAdventurerCut(profitGold, investorsCuts, len(adventuringFriends) + len(adventuringInvestors) + 1)
+
+    for person in people:
+        startGold = getPersonCashInGold(person['cash'])
+        endGold = startGold
+
+        if person == mainCharacter:
+            endGold += round(goldCut + round(10 * len(adventuringFriends)), 2)
+        elif person in adventuringInvestors:
+            endGold += goldCut
+        elif person in adventuringFriends:
+            endGold += goldCut - 10
+        if person in interestingInvestors:
+            endGold += round(profitGold * person['profitReturn'] / 100, 2)
+
+        earnings.append({
+            'name': person['name'],
+            'start': round(startGold, 2),
+            'end': round(endGold, 2),
+        })
+
+    return earnings
 
 ##################### view functions #####################
 def print_colorvars(txt:str='{}', vars:list=[], color:str='yellow') -> None:
-	vars = map(lambda string, color=color: colored(str(string), color, attrs=['bold']) ,vars)
-	print(txt.format(*vars))
+    vars = map(lambda string, color=color: colored(str(string), color, attrs=['bold']) ,vars)
+    print(txt.format(*vars))
 
 def print_title(name:str) -> None:
-	print_colorvars(vars=['=== [ {} ] ==='.format(name)], color='green')
+    print_colorvars(vars=['=== [ {} ] ==='.format(name)], color='green')
 
 def print_chapter(number:int, name:str) -> None:
-	nextStep(2)
-	print_colorvars(vars=['- CHAPTER {}: {} -'.format(number, name)], color='magenta')
+    nextStep(2)
+    print_colorvars(vars=['- CHAPTER {}: {} -'.format(number, name)], color='magenta')
 
 def nextStep(secwait:int=1) -> None:
-	print('')
-	time.sleep(secwait)
+    print('')
+    time.sleep(secwait)
 
 def ifOne(amount:int, yes:str, no:str, single='een') -> str:
-	text = yes if amount == 1 else no
-	amount = single if amount == 1 else amount
-	return '{} {}'.format(amount, text).lstrip()
+    text = yes if amount == 1 else no
+    amount = single if amount == 1 else amount
+    return '{} {}'.format(amount, text).lstrip()
