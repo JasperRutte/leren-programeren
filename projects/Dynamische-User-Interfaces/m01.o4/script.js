@@ -12,9 +12,22 @@ while (question !== "fris" || question !== "bier" || question !== "wijn") {
         }
         console.log(items);
     } else if (question === "stop"){
-        document.getElementById("myDiv").innerHTML = Object.values(items);
         break
     } else {
         alert("dit ken ik niet")
     }
 }
+
+
+function objectToString(items){
+    if (items === "fris") {
+        let getal = Object.values("fris")
+        console.log(getal)
+    }
+}
+items.forEach(objectToString)
+
+
+let myString = JSON.stringify(items, null, " ");
+document.getElementById("myDiv").innerHTML = myString;
+

@@ -20,7 +20,7 @@ container {
 }
 
 .introduction {
-    font-size: 1.1em;
+    font-size: 1.4em;
     margin-right: 200px;
 }
 
@@ -57,4 +57,10 @@ container {
     font-size: 2em;
 }
 
+#border {
+    border: solid #A9FFF1;
+}
 
+#border {
+    
+}

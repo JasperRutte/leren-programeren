@@ -1,3 +1,6 @@
+from data import *
+
+
 def intInput(prompt: str) -> int:
     while True:
         amount = input(prompt)
@@ -14,3 +17,6 @@ def askUser(prompt: str, data: list) -> str:
             return question
         else:
             print("Sorry, dat begrijp ik niet.")
+
+def receipt():
+    pass

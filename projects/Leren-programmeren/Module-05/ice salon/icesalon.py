@@ -5,7 +5,7 @@ print("Welkom bij Papi Gelato je mag alle smaken kiezen zolang het maar vanille 
 bestelling = True
 
 while bestelling:
-    userInput = intInput("Hoeveel bolletjes wilt u?")
+    userInput = intInput("Hoeveel bolletjes wilt u? ")
 
     if userInput > 8:
         print("Zulke grote bakjes hebben wij niet")
@@ -21,9 +21,9 @@ while bestelling:
             print(f"Dan krijgt u van mij een {bakjeHoorntje} met {userInput} bolletjes")
 
     print(f"Hier is uw {bakjeHoorntje} met {userInput} bolletjes")
-    again = askUser("Wilt u nog  een keer bestellen? (J/N)", ["J", "N"])
+    again = askUser("Wilt u nog  een keer bestellen? (J/N): ", ["j", "n"])
 
-    if again == "N":
+    if again == "n":
         bestelling = False
 
 print("tot ziens!")
