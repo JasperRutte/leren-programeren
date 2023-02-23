@@ -1,33 +1,43 @@
-let question = ""
-let items = {}
+let answer = ""
+const items = {
+    bier: 0,
+    fris: 0,
+    wijn: 0,
+}
 
-while (question !== "fris" || question !== "bier" || question !== "wijn") {
-    question = prompt("Wat wilt u bestellen")
-    if (question === "fris" || question === "bier" || question === "wijn") {
-        let amountQuestion = Number(prompt("Hoeveel:"))
-        if (question in items){
-            items[question] += amountQuestion
+while (answer !== "stop") {
+    answer = prompt("Wat wilt u bestellen")
+    if (!(answer in items)) {
+        if (answer !== "stop") {
+            alert("Dat begrijp ik niet")
         } else {
-            items[question] = amountQuestion;
+            continue
         }
-        console.log(items);
-    } else if (question === "stop"){
-        break
     } else {
-        alert("dit ken ik niet")
+        let amountQuestion = Number(prompt("Hoeveel?"))
+        items[answer] += amountQuestion
+        console.log(items)
     }
 }
 
+let itemsFormatted = "";
+let total = 0;
 
-function objectToString(items){
-    if (items === "fris") {
-        let getal = Object.values("fris")
-        console.log(getal)
+for (const [key, value] of Object.entries(items)) {
+    if (value === 0){
+        continue
     }
+    let price;
+    if (value === "bier"){
+        price = Number(value) * 3;
+    } else if (value === "fris"){
+        price = Number(value) * 2;
+    } else {
+        price = Number(value) * 5;
+    }
+    total = Number(total) + Number(price)
+    itemsFormatted = `${itemsFormatted}${key}: ${value}x: ${price.toFixed(2)}</br>`;
 }
-items.forEach(objectToString)
+document.getElementById("myDiv").innerHTML = itemsFormatted;
 
-
-let myString = JSON.stringify(items, null, " ");
-document.getElementById("myDiv").innerHTML = myString;
-
+document.getElementById("myDiv2").innerHTML = (total.toFixed(2))
