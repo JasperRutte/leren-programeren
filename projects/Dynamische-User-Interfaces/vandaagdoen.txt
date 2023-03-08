@@ -1,0 +1,2 @@
+- vooruitgang buttons javascript maken of zelfs afmaken
+  > alleen de html file dynamisch maken
