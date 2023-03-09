@@ -20,15 +20,22 @@ def changeVariables(list : list, providedType : str, iceCreamReceived : str, ice
         if price['name'] == providedType:
             if skipTables:
                 price['totalAmount'] = price['totalAmount'] + 1
-        if price['name'] == iceCreamReceived:
+        elif price['name'] == iceCreamReceived:
             price['totalAmount'] = round(price['totalAmount'] + 1, 2)
-        if price['label'] == iceCreamTopping:
+        elif price['label'] == iceCreamTopping:
             if iceCreamTopping == 'Caramel Saus':
                 if providedType == 'bakje':
                     price['price'] = 0.90
                 elif providedType == 'hoorntje':
                     price['price'] = 0.60
 
+            price['totalAmount'] = round(price['totalAmount'] + 1, 2)
+    return list
+
+
+def changeVariablesLiter(list: list, iceCreamReceived: str) -> list:
+    for price in list:
+        if price['name'] == iceCreamReceived:
             price['totalAmount'] = round(price['totalAmount'] + 1, 2)
     return list
 
@@ -71,3 +78,14 @@ def receivedIceCreamTopping(item : str) -> str:
         return 'Sprinkels'
     elif item == 'd':
         return 'Caramel Saus'
+
+def receivedIceCreamLiter(item: str) -> str:
+    if item == 'a':
+        return 'L.aardbei'
+    elif item == 'c':
+        return 'L.Chocolade'
+    elif item == 'm':
+        return 'L.Munt'
+    elif item == 'v':
+        return 'L.Vanille'
+
