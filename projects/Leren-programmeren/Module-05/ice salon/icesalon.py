@@ -1,14 +1,12 @@
 from functions import *
 from data import *
 
-ordering = True
-
 print('Welkom bij Papi Gelato!')
 print('')
 
 while ordering:
-    clientOrCustomer = askUser("Bent u A) een particuliere klant of B) een zakelijke klant?", ['a', 'b'])
-    if clientOrCustomer == "a":
+    askUserIfBusiness = askUser('Bent u \n\nA) een particuliere klant \nB) een zakelijke klant?', ['a', 'b'])
+    if askUserIfBusiness == 'a':
         inputAmount = integerInput('Hoeveel bolletjes wilt u? ')
         if inputAmount > 8:
             print('Zulke grote bakjes hebben wij niet.')
@@ -23,50 +21,42 @@ while ordering:
                 bakjeHoorntje = 'bakje'
 
             for item in range(1, inputAmount + 1):
-                iceCreamInput = askUser(f'Welke smaak wilt u voor bolletje nummer {item}? \nA) Aardbei \nC) Chocolade \nM) Munt \nV) Vanille? ', ['a', 'c', 'm', 'v'])
+                iceCreamInput = askUser(
+                    f'Welke smaak wilt u voor bolletje nummer {item}? \nA) Aardbei \nC) Chocolade \nM) Munt \nV) Vanille? ',
+                    ['a', 'c', 'm', 'v'])
                 iceCreamReceived = receivedIceCream(iceCreamInput)
 
                 if item == inputAmount:
                     skipTables = True
-                    iceCreamToppingInput = askUser(f'Wat voor topping wilt u: \nA) Geen \nB) Slagroom \nC) Sprinkels \nD) Caramel Saus?' , ['a', 'b', 'c', 'd'])
+                    iceCreamToppingInput = askUser(
+                        f'Wat voor topping wilt u: \nA) Geen \nB) Slagroom \nC) Sprinkels \nD) Caramel Saus?',
+                        ['a', 'b', 'c', 'd'])
                     iceCreamToppingReceived = receivedIceCreamTopping(iceCreamToppingInput)
                 else:
                     iceCreamToppingReceived = 'None'
                     skipTables = False
 
-                adaptedPrices = changeVariables(prices, bakjeHoorntje, iceCreamReceived, iceCreamToppingReceived, skipTables)
-
+                adaptedPrices = changeVariables(prices, bakjeHoorntje, iceCreamReceived, iceCreamToppingReceived,
+                                                skipTables)
         if iceCreamToppingReceived == 'Geen':
             print(f'Dan krijgt u van mij een {bakjeHoorntje} met {inputAmount} bolletjes')
         else:
-            print(f'Dan krijgt u van mij een {bakjeHoorntje} met {inputAmount} bolletjes en een topping van {iceCreamToppingReceived}')
+            print(
+                f'Dan krijgt u van mij een {bakjeHoorntje} met {inputAmount} bolletjes en een topping van {iceCreamToppingReceived}')
         print(f'Hier is uw {bakjeHoorntje} met {inputAmount} bolletjes')
 
         ordering = askUser('Wilt u nog een keer bestellen? (J/N) ', ['j', 'n']) != 'n'
-    elif clientOrCustomer == "b":
-        inputAmount = integerInput("Hoeveel liter ijs wilt u?")
-        for item in range(1, inputAmount + 1):
-            iceCreamInput = askUser(f'Welke smaak wilt u voor liter ijs {item}? \nA) Aardbei \nC) Chocolade \nM) Munt \nV) Vanille? ',['a', 'c', 'm', 'v'])
-            iceCreamReceived = receivedIceCream(iceCreamInput)
-
-        print(f'Dan krijgt u van mij {inputAmount} liter ijs met smaak {iceCreamReceived}')
-
-        changeVariablesLiter(prices, iceCreamReceived)
-
-        ordering = False
-
-    elif clientOrCustomer == "b":
+    elif askUserIfBusiness == 'b':
         inputAmount = integerInput('Hoeveel liter ijs wilt u? ')
         for item in range(1, inputAmount + 1):
-            iceCreamInput = askUser(
-                f'Welke smaak wilt u voor bolletje nummer {item}? \nA) Aardbei \nC) Chocolade \nM) Munt \nV) Vanille? ',
+            iceCreamLiterInput = askUser(
+                f'Welke smaak wilt u voor liter ijs ({item})? \nA) Aardbei \nC) Chocolade \nM) Munt \nV) Vanille? ',
                 ['a', 'c', 'm', 'v'])
-            iceCreamReceived = receivedIceCream(iceCreamInput)
-            print(iceCreamReceived)
+            iceCreamReceived = receivedIceCreamLiter(iceCreamLiterInput)
 
-    else:
-        print("bruh")
+            adaptedPrices = changeVariablesLiter(prices, iceCreamReceived)
 
+        ordering = False
 
 newPrices = checkBill(adaptedPrices)
 billData = receiveBillData(adaptedPrices, newPrices)
@@ -82,6 +72,9 @@ if len(billData) >= 1:
         totalPrice = totalPrice + itemTotalPrice
         print(f'{itemName}    {itemAmount} x € {itemPrice} = € {itemTotalPrice}')
     print(f'                    ------ +')
+    if askUserIfBusiness == 'b':
+        totalBTW = totalPrice / 100 * btwNumber
+        print(f'BTW ({btwNumber}%)          = € {round(totalBTW, 2)}')
     print(f'Totaal            = € {round(totalPrice, 2)}')
 
     print(f'')

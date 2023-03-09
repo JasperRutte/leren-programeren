@@ -45,24 +45,26 @@ prices = [{
     'totalAmount': 0
 }, {
     'name': 'L.Aardbei',
-    'label': 'B Aardbei',
+    'label': 'L. Aardbei',
     'price': 9.80,
     'totalAmount': 0
 }, {
     'name': 'L.Chocolade',
-    'label': 'B Chocolade',
+    'label': 'L. Chocolade',
     'price': 9.80,
     'totalAmount': 0
 }, {
     'name': 'L.Munt',
-    'label': 'B Munt',
-    'price': 1.10,
+    'label': 'L. Munt',
+    'price': 9.80,
     'totalAmount': 0
 }, {
     'name': 'L.Vanille',
-    'label': 'B Vanille',
+    'label': 'L. Vanille',
     'price': 9.80,
     'totalAmount': 0
 }]
 
+ordering = True
 totalPrice = 0
+btwNumber = 9
