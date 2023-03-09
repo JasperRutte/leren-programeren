@@ -20,6 +20,7 @@ while (answer !== "stop") {
     }
 }
 
+
 let itemsFormatted = "";
 let total = 0;
 
@@ -28,9 +29,9 @@ for (const [key, value] of Object.entries(items)) {
         continue
     }
     let price;
-    if (value === "bier"){
+    if (key === "bier"){
         price = Number(value) * 3;
-    } else if (value === "fris"){
+    } else if (key === "fris"){
         price = Number(value) * 2;
     } else {
         price = Number(value) * 5;
