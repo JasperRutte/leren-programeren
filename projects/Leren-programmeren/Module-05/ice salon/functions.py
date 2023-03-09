@@ -5,7 +5,7 @@ def integerInput(prompt: str) -> int:
             inputAmount = int(inputAmount)
             return inputAmount
         except ValueError:
-            print('Sorry, dit herken ik niet!')
+            print('Sorry dat is geen optie die we aanbieden...')
 
 
 def askUser(prompt: str, data: list) -> str:
@@ -14,7 +14,7 @@ def askUser(prompt: str, data: list) -> str:
         if inputQuestion in data:
             return inputQuestion
         else:
-            print('Sorry, dit herken ik niet!')
+            print('sorry dat is geen optie die we aanbieden...')
 
 
 def changeVariables(list: list, providedType: str, iceCreamReceived: str, iceCreamTopping: str,

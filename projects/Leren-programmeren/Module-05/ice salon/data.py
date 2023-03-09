@@ -1,22 +1,21 @@
+literIjs = 9.80
+bolletjeIjs = 0.95
+
+
 prices = [{
     'name': 'Aardbei',
     'label': 'B Aardbei',
-    'price': 1.10,
+    'price': bolletjeIjs,
     'totalAmount': 0
 }, {
     'name': 'Chocolade',
     'label': 'B Chocolade',
-    'price': 1.10,
-    'totalAmount': 0
-}, {
-    'name': 'Munt',
-    'label': 'B Munt',
-    'price': 1.10,
+    'price': bolletjeIjs,
     'totalAmount': 0
 }, {
     'name': 'Vanille',
     'label': 'B Vanille',
-    'price': 1.10,
+    'price': bolletjeIjs,
     'totalAmount': 0
 }, {
     'name': 'hoorntje',
@@ -46,25 +45,20 @@ prices = [{
 }, {
     'name': 'L.Aardbei',
     'label': 'L. Aardbei',
-    'price': 9.80,
+    'price': bolletjeIjs,
     'totalAmount': 0
 }, {
     'name': 'L.Chocolade',
     'label': 'L. Chocolade',
-    'price': 9.80,
-    'totalAmount': 0
-}, {
-    'name': 'L.Munt',
-    'label': 'L. Munt',
-    'price': 9.80,
+    'price': bolletjeIjs,
     'totalAmount': 0
 }, {
     'name': 'L.Vanille',
     'label': 'L. Vanille',
-    'price': 9.80,
+    'price': bolletjeIjs,
     'totalAmount': 0
 }]
 
 ordering = True
 totalPrice = 0
-btwNumber = 9
+btwNumber = 6
