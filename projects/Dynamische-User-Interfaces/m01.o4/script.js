@@ -11,7 +11,7 @@ while (answer !== "stop") {
         if (answer !== "stop") {
             alert("Dat begrijp ik niet")
         } else {
-            continue
+
         }
     } else {
         let amountQuestion = Number(prompt("Hoeveel?"))

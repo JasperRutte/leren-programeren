@@ -5,4 +5,11 @@ Vr 10-3
 Di 14-3:
 - buttons 2 afmaken
     > De buttons rood maken na 2 keer drukken
-- buttons 3 begin maken
+- begin maken aan de tank opdracht
+
+ Wo 15-3:
+ - verder werken aan de tank opdracht
+    > De tank links en rechts laten bewegen
+
+ Do 16-3:
+ - tank afmaken
