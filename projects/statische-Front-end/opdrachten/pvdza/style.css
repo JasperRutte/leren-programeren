@@ -1,0 +1,48 @@
+body {
+    background: #1c2623;
+    font-family: "ubuntu thin", "roboto slab";
+}
+
+h1 {
+    margin-bottom: 7px;
+    font-size: 4em;
+    text-decoration: none;
+}
+
+h2 {
+    margin-top: 7px;
+    font-size: 2em;
+}
+
+p {
+   font-size: 1.4em;
+}
+
+li {
+   font-size: 1.2em;
+}
+
+#picture {
+    float:right;
+    border-radius: 100%;
+}
+
+main {
+    color: #FFFFFF;
+    margin: 8% auto;
+    width: 30%;
+    padding: 10px;
+}
+
+.name {
+    margin-bottom: 40px;
+}
+
+.introduction {
+    margin-bottom: 30px;
+}
+
+.statements {
+    margin-top: 30px;
+}
+
