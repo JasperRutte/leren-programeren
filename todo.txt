@@ -13,3 +13,8 @@ Di 14-3:
 
  Do 16-3:
  - tank afmaken
+
+Vr 17-3:
+- begin maken aan meesterproef py
+    > flowchart maken
+    > Als mogelijk begin maken aan code

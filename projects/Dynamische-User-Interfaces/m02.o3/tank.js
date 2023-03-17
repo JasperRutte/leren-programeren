@@ -26,14 +26,12 @@ function driving(key) {
     } else if (key == '37') { // left arrow
         image.style.transform = "rotate(270deg)"
         image.style.backgroundPosition = `${wheels = wheels - 84}px 0px`;
-        leftRight = leftRight - 10
-        image.style.marginLeft = String(leftRight) + "px"
+        image.style.marginLeft = String(leftRight = leftRight - 10) + "px"
         console.log("left arrow");
     } else if (key == '39') {   // right arrow
         image.style.transform = "rotate(90deg)"
         image.style.backgroundPosition = `${wheels = wheels + 84}px 0px`;
-        leftRight = leftRight + 10
-        image.style.marginLeft = String(leftRight) + "px"
+        image.style.marginLeft = String(leftRight = leftRight + 10) + "px"
     }
 }
 
