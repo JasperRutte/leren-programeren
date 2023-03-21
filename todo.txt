@@ -18,3 +18,4 @@ Vr 17-3:
 - begin maken aan meesterproef py
     > flowchart maken
     > Als mogelijk begin maken aan code
+
