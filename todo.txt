@@ -19,3 +19,18 @@ Vr 17-3:
     > flowchart maken
     > Als mogelijk begin maken aan code
 
+Di 21-3:
+- Verder werken aan button 3
+    > kijken hoe createElement werkt
+    > kijken hoe setAttribute werkt
+
+ Wo 22-3:
+ - Verder werken buttons 3
+
+ Do 23-3:
+ JS:
+ - Buttons 3 proberen af te maken
+    > Kleur van de buttons veranderen elke keer dat je er op drukt
+
+ PY:
+ - Yahtzee verder afmaken
