@@ -20,7 +20,6 @@ while (answer !== "stop") {
     }
 }
 
-
 let itemsFormatted = "";
 let total = 0;
 
@@ -40,5 +39,4 @@ for (const [key, value] of Object.entries(items)) {
     itemsFormatted = `${itemsFormatted}${key}: ${value}x: ${price.toFixed(2)}</br>`;
 }
 document.getElementById("myDiv").innerHTML = itemsFormatted;
-
 document.getElementById("myDiv2").innerHTML = (total.toFixed(2))

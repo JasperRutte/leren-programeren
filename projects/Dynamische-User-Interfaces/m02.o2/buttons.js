@@ -17,4 +17,3 @@ buttonCountUp = function(button){
     buttonElement.style.backgroundColor = "#fc1303"
     buttonElement.disabled = true
 }
-
