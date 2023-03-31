@@ -43,3 +43,7 @@ Ma 28-3:
 - Mastermind start maken
     > cjv 24 laten checken
     > start maken aan het programma
+
+Vr 31-3:
+- mastermind verder werken
+    > de submit kleuren check
