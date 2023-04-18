@@ -12,10 +12,10 @@ for (let i = 1; i < rows + 1; i++){
 console.log(randomColors)
 
 
-function submit(select){
-    let number = select.id
+function submit(rowNumber){
+    let number = rowNumber.id
     console.log(number)
-    document.getElementById(select.id).disabled = true;
+    document.getElementById(rowNumber.id).disabled = true;
     let rowColors = []
     for (let i = 1; i < rows + 1; i++) {
         let selectId = document.getElementById(String(number+"-"+i))
@@ -26,16 +26,24 @@ function submit(select){
     for (let test = 0; test < randomColors.length; test++){
         if (rowColors[test] === randomColors[test]){
             console.log("correct")
+        } else if (randomColors.includes(rowColors[test])){
+            console.log("wrong spot")
         } else {
+
             console.log("wrong")
         }
     }
+}
+
+function changeColor(select){
+    select.style.backgroundColor = select.value
 }
 
 
 for (let num1 = 1; num1 < collumn + 1; num1++) {
     for (let num2 = 1; num2 < rows + 1; num2++) {
         let select = document.createElement("select");
+        select.setAttribute("onClick", "changeColor(this)")
         select.setAttribute("id", num1+"-"+num2);
         for (let color = 0; color < colors.length; color++) {
             let option = document.createElement("option");
@@ -45,6 +53,9 @@ for (let num1 = 1; num1 < collumn + 1; num1++) {
             container.appendChild(select)
         }
     }
+    let redButton = document.createElement("button")
+    let blueButton = document.createElement("button")
+
     let submit = document.createElement("button");
     submit.setAttribute("id", num1);
     submit.setAttribute("onClick", "submit(this)")

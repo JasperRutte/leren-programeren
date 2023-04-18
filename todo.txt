@@ -2,14 +2,17 @@ Vr 10-3
 - start aan meesterproef
     > yathzee
 
+
 Di 14-3:
 - buttons 2 afmaken
     > De buttons rood maken na 2 keer drukken
 - begin maken aan de tank opdracht
 
+
 Wo 15-3:
 - verder werken aan de tank opdracht
     > De tank links en rechts laten bewegen
+
 
 Do 16-3:
 - tank afmaken
@@ -19,31 +22,47 @@ Vr 17-3:
     > flowchart maken
     > Als mogelijk begin maken aan code
 
+
 Di 21-3:
 - Verder werken aan button 3
     > kijken hoe createElement werkt
     > kijken hoe setAttribute werkt
 
+
 Wo 22-3:
 - Verder werken buttons 3
+
 
 Do 23-3:
 JS:
 - Buttons 3 proberen af te maken
     > Kleur van de buttons veranderen elke keer dat je er op drukt
-
 PY:
 - Yahtzee verder afmaken
+
 
 Vr 24-3:
 - Yahtzee verder afmaken
     > functions maken
+
 
 Ma 28-3:
 - Mastermind start maken
     > cjv 24 laten checken
     > start maken aan het programma
 
+
 Vr 31-3:
 - mastermind verder werken
     > de submit kleuren check
+
+
+Wo 12-4:
+- mastermind trelloboard en flowchart bijwerken
+
+- mastermind opdracht afmaken
+    > aangeven welke kleuren correct zijn en welke op de foute plek staan
+
+Di 18-4:
+- mastermind opdracht afmaken
+    >kleuren check afmaken

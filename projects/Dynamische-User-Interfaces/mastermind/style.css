@@ -40,3 +40,18 @@ footer {
     color: var(--lightcolor);
     padding-top: 10px;
 }
+
+.redSquare {
+    background: red;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.whiteSquare {
+    background: white;
+    border: solid black;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
